@@ -6,6 +6,8 @@ import {
   colors,
   animals,
 } from "unique-names-generator";
+import "github-markdown-css";
+import { NavLink } from "react-router-dom";
 
 export const Page4 = () => {
   const [apiName, setApiName] = useState("");
@@ -49,5 +51,11 @@ export const Page4 = () => {
   8. Repeat steps 5-7 for 'GET /items', 'DELETE /items/{id}', and 'PUT /items'.
   9. Confirm all routes are created.`;
 
-  return <ReactMarkdown children={markdown}></ReactMarkdown>;
+  return (
+    <div className="markdown-body">
+      <ReactMarkdown children={markdown}></ReactMarkdown>
+      <NavLink to="/5">Next </NavLink>
+      <NavLink to="/3">Previous</NavLink>
+    </div>
+  );
 };

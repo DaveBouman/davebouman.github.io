@@ -6,6 +6,8 @@ import {
   colors,
   animals,
 } from "unique-names-generator";
+import "github-markdown-css";
+import { Link, NavLink } from "react-router-dom";
 
 export const Page2 = () => {
   const [lambdaName, setLambdaName] = useState("");
@@ -100,7 +102,7 @@ export const Page2 = () => {
         case "DELETE /items/{id}":
           await dynamo
             .delete({
-              TableName: "http-crud-tutorial-items",
+              TableName: "${dynamodbName}",
               Key: {
                 id: event.pathParameters.id
               }
@@ -111,7 +113,7 @@ export const Page2 = () => {
         case "GET /items/{id}":
           body = await dynamo
             .get({
-              TableName: "http-crud-tutorial-items",
+              TableName: "${dynamodbName}",
               Key: {
                 id: event.pathParameters.id
               }
@@ -155,5 +157,11 @@ export const Page2 = () => {
   
   13. Choose Deploy to update your function.`;
 
-  return <ReactMarkdown children={markdown}></ReactMarkdown>;
+  return (
+    <div className="markdown-body">
+      <ReactMarkdown children={markdown}></ReactMarkdown>
+      <NavLink to="/3">Next </NavLink>
+      <NavLink to="/">Previous</NavLink>
+    </div>
+  );
 };

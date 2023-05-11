@@ -6,6 +6,8 @@ import {
   colors,
   animals,
 } from "unique-names-generator";
+import "github-markdown-css";
+import { Link, NavLink } from "react-router-dom";
 
 export const Page1 = () => {
   const [dynamodbName, setDynamodbName] = useState("");
@@ -46,5 +48,10 @@ export const Page1 = () => {
     
     After a few seconds, your DynamoDB table becomes available.`;
 
-  return <ReactMarkdown children={markdown}></ReactMarkdown>;
+  return (
+    <div className="markdown-body">
+      <ReactMarkdown children={markdown}></ReactMarkdown>
+      <NavLink to="/2">Next </NavLink>
+    </div>
+  );
 };

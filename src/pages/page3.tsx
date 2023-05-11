@@ -6,6 +6,8 @@ import {
   colors,
   animals,
 } from "unique-names-generator";
+import "github-markdown-css";
+import { Link, NavLink } from "react-router-dom";
 
 export const Page3 = () => {
   const [apiName, setApiName] = useState("");
@@ -50,5 +52,11 @@ export const Page3 = () => {
   7. Review the stage that API Gateway creates for you ('$default'), and then choose 'Next'.
   8. Choose 'Create'.`;
 
-  return <ReactMarkdown children={markdown}></ReactMarkdown>;
+  return (
+    <div className="markdown-body">
+      <ReactMarkdown children={markdown}></ReactMarkdown>
+      <NavLink to="/4">Next </NavLink>
+      <NavLink to="/2">Previous</NavLink>
+    </div>
+  );
 };
