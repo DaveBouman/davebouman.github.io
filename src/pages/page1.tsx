@@ -24,6 +24,7 @@ export const Page1 = () => {
       setDynamodbName(storedDynamodbName);
     }
   }, []);
+
   const markdown = `
     ## Create a DynamoDB table
     
